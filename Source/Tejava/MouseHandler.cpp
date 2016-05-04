@@ -30,7 +30,14 @@ void AMouseHandler::Move_Sphere()
 {
 	if (Sphere)
 	{
-		Sphere->SetActorLocation(Sphere->GetActorLocation() + FVector(1, 1, 1) * 10.0f);
+		APlayerController *PlayerController = Cast<APlayerController>(GetController());
+		if (PlayerController)
+		{
+			float LocationX, LocationY;
+			PlayerController->GetMousePosition(LocationX, LocationY);
+			UE_LOG(MyLogCategory, Log, TEXT("(%f, %f)"), LocationX, LocationY);
+			Sphere->SetActorLocation(Sphere->GetActorLocation() + FVector(1, 1, 1) * 10.0f);
+		}
 	}
 }
 
