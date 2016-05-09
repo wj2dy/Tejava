@@ -26,5 +26,13 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		AActor *Sphere;
+
+	UPROPERTY(EditAnywhere)
+		AActor *Floor;
 	
+	FVector TargetLocation;
+	bool bTargeting;
+
+	UPROPERTY(EditAnywhere)
+		float SphereSpeed = 500.0f;
 };
